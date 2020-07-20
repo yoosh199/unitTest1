@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
 public class CustomCalculatorTest {
@@ -47,6 +47,8 @@ public class CustomCalculatorTest {
         customCalculator = new CustomCalculator();
         int result = customCalculator.subtract(23,10);
         assertFalse(result == 12);
+        assertThat(result, is(13));
+        assertSame(result,13);
         System.out.println("빼기 테스트");
 
 
@@ -59,7 +61,9 @@ public class CustomCalculatorTest {
         customCalculator = new CustomCalculator();
         int result = customCalculator.multiply(5,9);
         /* 이곳에 테스트 코드를 작성하세요. */
-        //assertThat(result, equalto);
+        assertThat(result, equalTo(45));
+        assertTrue(result == 45);
+        assertEquals(result,45);
 
         System.out.println("result :: " + result);
     }
@@ -70,10 +74,13 @@ public class CustomCalculatorTest {
         customCalculator = new CustomCalculator();
         int result = customCalculator.divide(25,5);
         /* 이곳에 테스트 코드를 작성하세요. */
+        assertThat(result, lessThan(6));
+        assertThat(result, is(5));
         System.out.println("result :: " + result);
     }
     @Test(timeout = 4000)
     public void timeInMethodTest() throws InterruptedException {
+        Thread.sleep(2999);
         Thread.sleep(1000);
 
     }
@@ -91,6 +98,9 @@ public class CustomCalculatorTest {
     public void testIsEmptyArray() {
         ArrayList<Object> myList = new ArrayList<>();
         assertThat(myList, is(empty()));
+        assertThat(myList, empty());
+        assertThat(myList, equalTo(empty()));
+
 
     }
 
