@@ -176,6 +176,10 @@ public class ChampionTest {
         assertThat(championNames1, samePropertyValuesAs(championNames4));
         assertThat(championNames2, samePropertyValuesAs(championNames5));
         assertThat(championNames4, samePropertyValuesAs(championNames5));
+        Champion champ1 = new Champion("갈리오", "미드");
+        Champion champ2 = new Champion("갈리오", "미드");
+        assertThat(champ1, samePropertyValuesAs(champ2));
+
     }
 
     //탑 챔피언은 다리우스여야 한다라는 조건으로 테스트 코드 작성, stream 활용예

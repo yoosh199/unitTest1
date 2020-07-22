@@ -25,11 +25,7 @@ public class CustomCalculatorTest {
         System.out.println("result :: " + result);
 
     }
-    @Ignore
-    @Test
-    public void ignoreTest(){
-        System.out.println("무시합니다");
-    }
+
 
     //빼기 테스트 작성
     @Test
